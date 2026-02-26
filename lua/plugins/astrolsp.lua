@@ -1,6 +1,4 @@
--- if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
-
--- AstroLSP allows you to customize the features in AstroNvim's LSP configuration engine
+-- -- AstroLSP allows you to customize the features in AstroNvim's LSP configuration engine
 -- Configuration documentation can be found with `:h astrolsp`
 -- NOTE: We highly recommend setting up the Lua Language Server (`:LspInstall lua_ls`)
 --       as this provides autocomplete and documentation while editing
@@ -40,10 +38,46 @@ return {
     -- enable servers that you already have installed without mason
     servers = {
       -- "pyright"
+      "yamlls",
     },
     -- customize language server configuration options passed to `lspconfig`
     ---@diagnostic disable: missing-fields
     config = {
+      yamlls = {
+        settings = {
+          yaml = {
+            customTags = {
+              "!And",
+              "!And sequence",
+              "!If",
+              "!If sequence",
+              "!Not",
+              "!Not sequence",
+              "!Equals",
+              "!Equals sequence",
+              "!Or",
+              "!Or sequence",
+              "!FindInMap",
+              "!FindInMap sequence",
+              "!Base64",
+              "!Join",
+              "!Join sequence",
+              "!Cidr",
+              "!Ref",
+              "!Sub",
+              "!Sub sequence",
+              "!GetAtt",
+              "!GetAZs",
+              "!ImportValue",
+              "!ImportValue sequence",
+              "!Select",
+              "!Select sequence",
+              "!Split",
+              "!Split sequence",
+            },
+          },
+        },
+      },
       -- clangd = { capabilities = { offsetEncoding = "utf-8" } },
       kotlin_language_server = {
         settings = {
