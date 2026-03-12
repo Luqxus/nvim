@@ -91,6 +91,8 @@ return {
     opts = {
       opencode_executable = "opencode",
       keymap_prefix = "<leader>'",
+      model = "github-copilot/claude-haiku-4.5",
+      provider = "github-copilot",
     },
   },
 }
