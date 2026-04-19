@@ -59,6 +59,27 @@ return {
           JAVA_HOME = vim.fn.expand "/opt/homebrew/opt/openjdk@21/libexec/openjdk.jdk/Contents/Home", -- Adjust if on M1/M2 Mac
         },
       },
+      angularls = {
+        cmd = {
+          "ngserver",
+          "--stdio",
+          "--tsProbeLocations",
+          vim.fn.expand "~/.nvm/versions/node/v24.14.0/lib/node_modules",
+          "--ngProbeLocations",
+          vim.fn.expand "~/.nvm/versions/node/v24.14.0/lib/node_modules",
+        },
+        on_new_config = function(new_config, _)
+          local global_nm = vim.fn.expand "~/.nvm/versions/node/v24.14.0/lib/node_modules"
+          new_config.cmd = {
+            "ngserver",
+            "--stdio",
+            "--tsProbeLocations",
+            global_nm,
+            "--ngProbeLocations",
+            global_nm,
+          }
+        end,
+      },
     },
     -- customize how language servers are attached
     handlers = {
